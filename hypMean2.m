@@ -18,10 +18,11 @@ function result = hypMean2(n1, mu1, sd1, n2, mu2, sd2, hyp, test)
         test = 'equal';
     end
     poolsqrd  =  (((n1 - 1) * sd1^2) + (n2 - 1) * sd2^2)/ (n1 + n2 - 2);
-    fprintf("poolsqrd  =  (((n1 - 1) * sd1^2) + (n2 - 1) * sd2^2)/ (n1 + n2 - 2) = %f \n",poolsqrd)
-    
+    fprintf("Sp^2 = ((n1-1)S1^2 + (n2-1)S2^2)/(n1+n2-2)\n")
+    fprintf("Sp^2 = (%d*%f^2 + %d*%f^2)/%d = %f\n", n1-1, sd1, n2-1, sd2, n1+n2-2, poolsqrd)
+
     tstat =  ((mu1 - mu2) - hyp) / (sqrt(poolsqrd)*sqrt((1/n1) + (1/n2)));
-    fprintf("tstat =  ((mu1 - mu2) - hyp) / (sqrt(poolsqrd)*sqrt((1/n1) + (1/n2))) = %f \n", tstat)
+    fprintf("tstat =  ((xBar1 - xBar2) - hyp) / (Sp*sqrt(1/n1 + 1/n2)) = %f \n", tstat)
 
     switch test 
     case 'equal'
