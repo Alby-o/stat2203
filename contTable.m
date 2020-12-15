@@ -1,18 +1,23 @@
-function contTable(x)
+function result = contTable(x)
     rowSum = sum(x,2)
     colSum = sum(x,1)
     totSum = sum(x,'all')
     
-    sprintf("Expected count (x,y) = col(y)*row(x)/sum table")
+    fprintf("H0: No association between rows & columns\n")
+    fprintf("H1: Some association between rows & columns\n")
+
+    fprintf("Expected counts = row totals * column totals / total\n")
     format longG
     expectedCounts = (rowSum*colSum) / totSum
     
-    chisquare = sum((x-expectedCounts).^2./(expectedCounts),'all')
-    sprintf("chisquare = Sum((ei - oi)^2 / ei) = %f", chisquare);
+    xSquare = sum((x-expectedCounts).^2./(expectedCounts), 'all');
+    fprintf("X^2 = sum i ((ei - oi)^2 / ei) = %f\n", xSquare)
     
     dof = (length(rowSum)-1)*(length(colSum) - 1);
-    sprintf("Dof = (#rows - 1)(#cols - 1) = %d",dof)
+    fprintf("degrees of freedom = (#rows - 1)(#cols - 1) = %d\n", dof)
     
-    chi2cdfVal = chi2cdf(chisquare,dof,'upper') 
-    estrength(chi2cdfVal)
+    pval = chi2cdf(xSquare, dof, 'upper')
+    fprintf("p-value = P(chi%d^2 > %f) = %f\n", dof, xSquare, pval)
+
+    result = estrength(pval);
 end
