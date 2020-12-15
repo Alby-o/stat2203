@@ -1,9 +1,9 @@
-function result = hypMean(n, muBar, sd, hyp, test)
+function result = hypMean(n, xBar, sd, hyp, test)
     % HYPMEAN Test a mean alternate hypothesis against a null hypothesis
     %
-    %   HYPMEAN(N, MUBAR, SD, HYP, TEST)
+    %   HYPMEAN(N, XBAR, SD, HYP, TEST)
     %   N = number of samples
-    %   MUBAR = sample calculated mean
+    %   XBAR = sample calculated mean
     %   SD = sample standard deviation of distribution
     %   HYP = the current hypothesis (default 0)
     %   TEST = hypothesis test we are conducting. One of 'equal', 'less' or 'upper'. (default 'equal')
@@ -14,11 +14,11 @@ function result = hypMean(n, muBar, sd, hyp, test)
     if ~exist('test','var')
         test = 'equal';
     end
-    tstat =  (muBar - hyp) / (sd / sqrt(n));
+    tstat =  (xBar - hyp) / (sd / sqrt(n));
 
     fprintf("standard error = s/sqrt(n) = %f/sqrt(%d) = %f\n", sd, n, sd/sqrt(n))
     fprintf("test statistic = (estimate - hypothesised)/s.e.(estimate)\n")
-    fprintf("test statistic = (%f - %f)/%f = %f\n", muBar, hyp, sd/sqrt(n), tstat)
+    fprintf("test statistic = (%f - %f)/%f = %f\n", xBar, hyp, sd/sqrt(n), tstat)
     pval = 0;
 
     switch test 

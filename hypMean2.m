@@ -1,12 +1,12 @@
 function result = hypMean2(n1, mu1, sd1, n2, mu2, sd2, hyp, test)
     % HYPMEAN2 Test an alternate hypothesis against a null hypothesis in difference in means 
     %
-    %   HYPMEAN2(N1, MUBAR1, SD1, N2, MUBAR2, SD2, HYP, TEST)
+    %   HYPMEAN2(N1, XBAR1, SD1, N2, XBAR2, SD2, HYP, TEST)
     %   N1 = number of samples in first distribution
-    %   MUBAR1 = sample calculated mean in first distribution
+    %   XBAR1 = sample calculated mean in first distribution
     %   SD1 = sample standard deviation of distribution in first distribution
     %   N2 = number of samples in second distribution
-    %   MUBAR2 = sample calculated mean in second distribution
+    %   XBAR2 = sample calculated mean in second distribution
     %   SD2 = sample standard deviation of distribution in second distribution
     %   HYP = the current hypothesis (default 0)
     %   TEST = hypothesis test we are conducting. One of 'equal', 'less' or 'upper'. (default 'equal')
