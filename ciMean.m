@@ -14,6 +14,7 @@ function ciMean(n, xBar, s, ci)
     serror = s / sqrt(n);
     fprintf("s.e.(estimate) = s / sqrt(n) = %f\n", serror)
     
-    fprintf("CI is estimate +- critical value * s.e.(estimate) = %f +- %f\n", xBar, z*serror)
+    fprintf("CI is estimate +- critical value * s.e.(estimate) = %f +- %f*%f\n", xBar, z, serror)
+    fprintf("= %f +- %f\n", xBar, z*serror)
     fprintf("A range of [%f,%f]\n", (xBar - z*serror), (xBar + z*serror))
 end
