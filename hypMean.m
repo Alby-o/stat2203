@@ -23,15 +23,15 @@ function result = hypMean(n, xBar, sd, hyp, test)
 
     switch test 
     case 'equal'
-        pval = min(tcdf(tstat, n-1), tcdf(tstat, n-1, 'upper')) * 2;
+        pval = min(tcdf(tstat, n-1), tcdf(tstat, n-1, 'upper')) * 2
         fprintf("pval = 2 * min[P(Tn-1 > tstat), P(Tn-1 < tstat)]\n")
         fprintf("pval = 2 * min[P(T%d > %f), P(T%d < %f)] = %f\n", n-1, tstat, n-1, tstat, pval)
     case 'less'
-        pval = tcdf(tstat, n-1);
+        pval = tcdf(tstat, n-1)
         fprintf("pval = P(Tn-1 < tstat)\n")
         fprintf("pval = P(T%d < %f) = %f\n", n-1, tstat, pval)
     case 'greater'
-        pval = tcdf(tstat, n-1, 'upper');
+        pval = tcdf(tstat, n-1, 'upper')
         fprintf("pval = P(Tn-1 > tstat)\n")
         fprintf("pval = P(T%d > %f) = %f\n", n-1, tstat, pval)
     otherwise

@@ -25,15 +25,15 @@ function result = hypMean2(n1, mu1, sd1, n2, mu2, sd2, hyp, test)
 
     switch test 
     case 'equal'
-        pval = 2 * min(tcdf(tstat,n1+n2-2),tcdf(tstat,n1+n2-2,'upper'));
+        pval = 2 * min(tcdf(tstat,n1+n2-2),tcdf(tstat,n1+n2-2,'upper'))
         fprintf("pval = 2 * min[P(Tn+m-2 > tstat), P(Tn+m-2 < tstat)]\n")
         fprintf("pval = 2 * min[P(T%d > %f), P(T%d < %f)] = %f\n", n1+n2-2, tstat, n1+n2-2, tstat, pval)
     case 'less'
-        pval = tcdf(tstat,n1+n2-2);
+        pval = tcdf(tstat,n1+n2-2)
         fprintf("pval = P(Tn+m-2 < tstat)\n")
         fprintf("pval = P(T%d < %f) = %f\n", n1+n2-2, tstat, pval)
     case 'greater'
-        pval = tcdf(tstat,n1+n2-2,'upper');
+        pval = tcdf(tstat,n1+n2-2,'upper')
         fprintf("pval = P(Tn+m-2 > tstat)\n")
         fprintf("pval = P(T%d > %f) = %f\n", n1+n2-2, tstat, pval)
     otherwise
